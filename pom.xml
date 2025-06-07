@@ -276,13 +276,13 @@
           <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
         </configuration>
       </plugin>
-      <!-- Spring Boot Actuator displays sbom-related information if a CycloneDX SBOM file is
-      present at the classpath -->
-      <plugin>
-        <?m2e ignore?>
-        <groupId>org.cyclonedx</groupId>
-        <artifactId>cyclonedx-maven-plugin</artifactId>
-      </plugin>
+<!--      &lt;!&ndash; Spring Boot Actuator displays sbom-related information if a CycloneDX SBOM file is-->
+<!--      present at the classpath &ndash;&gt;-->
+<!--      <plugin>-->
+<!--        <?m2e ignore?>-->
+<!--        <groupId>org.cyclonedx</groupId>-->
+<!--        <artifactId>cyclonedx-maven-plugin</artifactId>-->
+<!--      </plugin>-->
 
     </plugins>
   </build>
