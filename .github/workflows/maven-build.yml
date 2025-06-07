@@ -3,9 +3,7 @@
 
 name: Java CI with Maven
 
-on:
-  pull_request:
-    branches: [ feature/custom ]
+on: workflow_dispatch
 
 jobs:
   build:
