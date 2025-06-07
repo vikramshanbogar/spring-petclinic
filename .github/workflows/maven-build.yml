@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feature/custom ]
   pull_request:
-    branches: [ main ]
+    branches: [ feature/custom ]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '17' ]
+        java: [ '21' ]
 
     steps:
       - uses: actions/checkout@v4
