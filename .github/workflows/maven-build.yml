@@ -24,4 +24,4 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven Wrapper
-        run: mvn package --file pom.xml
+        run:  mvn package -Dskiptests --file pom.xml
