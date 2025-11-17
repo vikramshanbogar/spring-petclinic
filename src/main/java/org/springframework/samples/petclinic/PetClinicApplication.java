@@ -16,9 +16,14 @@
 
 package org.springframework.samples.petclinic;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.samples.petclinic.system.KmsService;
+
+import javax.sql.DataSource;
 
 /**
  * PetClinic Spring Boot Application.
@@ -32,5 +37,15 @@ public class PetClinicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
+
+	@Bean
+	public DataSource dataSource(KmsService kmsService) {
+		HikariDataSource ds = new HikariDataSource();
+		ds.setJdbcUrl("jdbc:mysql://localhost:3306/petclinic");
+		ds.setUsername("petclinic");
+		ds.setPassword(kmsService.decrypt("AQICAHjFsGZ+nk/KDJ55PeuoBx7Wce/CjjPXlv/u2TY2KWamAwEMl/YkKluT8MF3KsouHYJvAAAAZzBlBgkqhkiG9w0BBwagWDBWAgEAMFEGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM2y6VAs8qPcrTSkEEAgEQgCS+kt5aC9HgYQ2fxorQDzSjRBHySaL4gQBiIltzUYDkdZ2SNi4="));
+		return ds;
+	}
+
 
 }
