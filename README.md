@@ -175,13 +175,8 @@ docker run -p 443:443 \
 spring-petclinic
 
 
-Object obj = parser.readObject();
-JcaPEMKeyConverter converter = new JcaPEMKeyConverter().setProvider("BC");
-
-if (obj instanceof PEMKeyPair) {
-    // This handles PKCS#1 (RSA Private Key)
-    return converter.getPrivateKey(((PEMKeyPair) obj).getPrivateKeyInfo());
-} else if (obj instanceof PrivateKeyInfo) {
-    // This handles PKCS#8 (Private Key)
-    return converter.getPrivateKey((PrivateKeyInfo) obj);
-}
+docker build -t spring-petclinic . && \
+docker run -p 443:443 \
+-v /c/Users/$USERNAME/.aws:/root/.aws:ro \
+-e AWS_REGION=ap-south-1 \
+spring-petclinic
