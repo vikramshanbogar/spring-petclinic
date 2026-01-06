@@ -175,6 +175,15 @@ docker run -p 443:443 \
 spring-petclinic
 
 
+# Configure keystore location for container environment
+ENTRYPOINT ["java", \
+  "-Dapp.ssl.keystore-path=/tmp/keystore.p12", \
+  "-Dserver.ssl.key-store=file:/tmp/keystore.p12", \
+  "-jar", "/petclinic.jar"]
+
+
+
+
 docker build -t spring-petclinic . && \
 docker run -p 443:443 \
 -v /c/Users/$USERNAME/.aws:/root/.aws:ro \
