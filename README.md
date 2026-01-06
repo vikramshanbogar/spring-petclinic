@@ -166,3 +166,10 @@ For additional details, please refer to the blog post [Hello DCO, Goodbye CLA: S
 ## License
 
 The Spring PetClinic sample application is released under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
+
+docker run -p 443:443 \
+-e AWS_ACCESS_KEY_ID="" \
+-e AWS_SECRET_ACCESS_KEY="" \
+-e AWS_REGION=ap-south-1 \
+-e AWS_SESSION_TOKEN="" \
+spring-petclinic
