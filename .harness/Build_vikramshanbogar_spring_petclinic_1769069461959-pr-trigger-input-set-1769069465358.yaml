@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_vikramshanbogar_spring_petclinic_1769069461959-pr-trigger-input-set
+  identifier: Build_vikramshanbogar_spring_petclinic_1769069461959prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: SSL_Test
+  pipeline:
+    identifier: Build_vikramshanbogar_spring_petclinic_1769069461959
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
