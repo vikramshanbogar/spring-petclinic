@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_vikramshanbogar_spring_petclinic_1769069461959-push-trigger-input-set
+  identifier: Build_vikramshanbogar_spring_petclinic_1769069461959pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: SSL_Test
+  pipeline:
+    identifier: Build_vikramshanbogar_spring_petclinic_1769069461959
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
