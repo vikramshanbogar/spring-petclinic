@@ -8,9 +8,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Run the application (default H2 in-memory database)
 ./mvnw spring-boot:run
 
-# Run with MySQL or PostgreSQL profile
+# Run with MySQL, PostgreSQL, or Oracle profile
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=mysql
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=postgres
+./mvnw spring-boot:run -Dspring-boot.run.profiles=oracle
 
 # Build
 ./mvnw package
@@ -59,10 +60,11 @@ The app runs at `http://localhost:8080/`. H2 console available at `http://localh
 | (none)  | H2 in-memory | auto |
 | `mysql` | MySQL | `jdbc:mysql://localhost/petclinic` |
 | `postgres` | PostgreSQL | `jdbc:postgresql://localhost/petclinic` |
+| `oracle` | Oracle DB | `jdbc:oracle:thin:@localhost:1521/petclinic` |
 
 Docker Compose (`docker-compose.yml`) provides MySQL 9.2 (port 3306) and PostgreSQL 17.5 (port 5432) for local dev. Credentials are `petclinic/petclinic`.
 
-SQL initialization scripts are in `src/main/resources/db/{h2,mysql,postgres,hsqldb}/`.
+SQL initialization scripts are in `src/main/resources/db/{h2,mysql,postgres,oracle,hsqldb}/`.
 
 ## Testing
 
@@ -70,6 +72,7 @@ SQL initialization scripts are in `src/main/resources/db/{h2,mysql,postgres,hsql
 - **H2 integration tests**: `PetClinicIntegrationTests` — full application context with H2
 - **MySQL integration tests**: `MySqlIntegrationTests` — requires Docker (uses TestContainers)
 - **PostgreSQL integration tests**: `PostgresIntegrationTests` — requires Docker Compose
+- **Oracle integration tests**: `OracleIntegrationTests` — requires Docker (uses TestContainers with `gvenzl/oracle-free:slim`)
 
 Integration tests with real databases are skipped unless Docker is available.
 
